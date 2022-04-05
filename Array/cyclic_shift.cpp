@@ -25,9 +25,7 @@ int main() {
             }
         }
         reverse(A_store.begin(), A_store.end());
-        for(int j=0; j<size; j++) {
-            cout<<A_store[j];
-        }
+        
 	}
 	return 0;
 }
