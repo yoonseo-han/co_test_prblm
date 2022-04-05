@@ -1,7 +1,6 @@
 #include <iostream>
 #include <algorithm>
 #include <vector>
-#include <utility>
 using namespace std;
 
 //helper function: Convert vector to integer
@@ -11,6 +10,14 @@ int convert_vector_to_int(vector<int> A_store, int size) {
         number = (number*10) + A_store[i];
     }
     return number;
+}
+
+void shift_vector_by_one(vector<int> & A_store, int size) {
+    int temp = A_store[0];
+    for(int k=0; k<size-1; k++) {
+        A_store[k] = A_store[k+1];
+    }
+    A_store[size-1] = temp;
 }
 
 int main() {
@@ -38,14 +45,29 @@ int main() {
         
         //Iterate n times to find max value and max position ID
         int max=convert_vector_to_int(A_store, size), maxID=0;
-        /*for(int j=1; j<size; j++) {
+        for(int j=1; j<size; j++) {
             //Cyclid shift of array
-
-        }*/
-        swap(A_store[0], A_store[size-1]);
-        for(int j=0; j<size; j++) {
-            cout<<A_store[j];
+            shift_vector_by_one(A_store,size);
+            //Compare to max and update if larger
+            if(max<convert_vector_to_int(A_store, size)) {
+                max = convert_vector_to_int(A_store, size);
+                maxID = k;
+            }
         }
+        //Update count
+        count = maxID;
+        k--;
+        //Restore original form 
+        shift_vector_by_one(A_store, size);
+        int origitnal_Val = convert_vector_to_int(A_store,size);
+        while(k == 0) {
+            shift_vector_by_one(A_store,size);
+            if(origitnal_Val == convert_vector_to_int(A_store,size)) {
+                k--;
+            }
+            count++;
+        }
+        cout<<count;
 	}
 	return 0;
 }
