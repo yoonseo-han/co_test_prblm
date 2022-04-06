@@ -51,7 +51,7 @@ int main() {
             //Compare to max and update if larger
             if(max<convert_vector_to_int(A_store, size)) {
                 max = convert_vector_to_int(A_store, size);
-                maxID = k;
+                maxID = j;
             }
         }
         //Update count
@@ -60,14 +60,14 @@ int main() {
         //Restore original form 
         shift_vector_by_one(A_store, size);
         int origitnal_Val = convert_vector_to_int(A_store,size);
-        while(k == 0) {
+        while(k != 0) {
             shift_vector_by_one(A_store,size);
             if(origitnal_Val == convert_vector_to_int(A_store,size)) {
                 k--;
             }
             count++;
         }
-        cout<<count;
+        cout<<count<<'\n';
 	}
 	return 0;
 }
