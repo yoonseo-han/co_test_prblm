@@ -9,7 +9,7 @@ using namespace std;
 
 int solution(string name) {
     int count = 0;
-    
+    int n = name.size();
     int move = name.size()-1; //record the left,right movement
 
     for(int i=0; i<name.size(); i++) {
@@ -18,13 +18,13 @@ int solution(string name) {
 
         //Calculate consecutive last index of consecutive 'A's from current position
         int consecutive_A = i+1;
-        while(consecutive_A<name.size() && name[consecutive_A] == 'A') {
+        while(consecutive_A<n && name[consecutive_A] == 'A') {
             consecutive_A++;
         }
         //Compare whether it is fast to go through the consecutive A or move backwards
-        move = min(move, i*2+name.size() - consecutive_A);
+        move = min(move, i + n - consecutive_A + min(i, n - consecutive_A));
     }
-
+    count+=move;
     return count;
 }
 
