@@ -9,14 +9,19 @@ class Solution {
         //Record the remaining elements to deal with in nums1
         int remainingElement = m;
 
+        //Deal with edge cases
+        if(n==0) {
+            return;
+        }
+
         for(int i=0; i<m+n; i++) {
             if(nums1[counter1] <= nums2[counter2]) {
-                //No new insertion held to nums1 array
-                counter1 = (remainingElement>0) ? counter1+1 : counter1;
                 //Decrease the remaining elements to deal with
                 remainingElement--;
+                //No new insertion held to nums1 array
+                counter1 = (remainingElement>0) ? counter1+1 : counter1;
             }
-            else {
+            else if(remainingElement>0){
                 //First move the remaining elements to right
                 for(int j=remainingElement; j>=0 ; j--) {
                     nums1[counter1+j+1] = nums1[counter1+j];
@@ -27,13 +32,23 @@ class Solution {
                 counter2++;
                 counter1 = (remainingElement>0) ? counter1+1 : counter1;
             }
+            //If all elements processed in nums1 first
+            else {
+                break;
+            }
+        }
+        //Add remaining elements in nums2 to resulting array
+        if(counter2<n) {
+            for(int i=counter2; i<n; i++) {
+                nums1[counter1+i] = nums2[i];
+            }
         }
     }
 
     public static void main(String strs[]) {
-        int nums1[] = {1,2,3,0,0,0};
-        int m = 3;
-        int nums2[] = {2,5,6};
+        int nums1[] = {2,2,3,5,0,0,0};
+        int m = 4;
+        int nums2[] = {1,1,3};
         int n = 3;
 
         merge(nums1, m, nums2, n);
