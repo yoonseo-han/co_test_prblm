@@ -6,7 +6,12 @@ class Solution {
     public static int maxProfitDC(int [] prices, int l, int r) {
 
         //Exit case
-        if(l==r) return prices[l];
+        if(l==r) return 0;
+
+        if(r==l+1) {
+            if (prices[l] < prices[r]) return prices[r] - prices[l];
+            else return 0;
+        }
         
         int q = Math.floorDiv((l+r), 2);
         int M1 = maxProfitDC(prices, l, q);
@@ -27,6 +32,7 @@ class Solution {
     }
 
     public static int maxProfit(int[] prices) {
+        if (prices == null || prices.length < 2) return 0;
         return maxProfitDC(prices, 0, prices.length-1);
     }
 
