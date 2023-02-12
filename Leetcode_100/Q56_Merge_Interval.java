@@ -2,7 +2,6 @@ package Leetcode_100;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Scanner;
 import java.lang.Integer;
 import java.util.List;
 
@@ -27,7 +26,13 @@ class Solution {
             }
         }
 
-        return resultList.toArray(new int[resultList.size()][]);
+        //return resultList.toArray(new int[resultList.size()][]);
+        int [][] resultArray = new int[resultList.size()][2];
+        for(int i=0; i<resultArray.length; i++) {
+            resultArray[i] = resultList.get(i);
+        }
+
+        return resultArray;
     }
 
     public static void main(String strs[]) {
