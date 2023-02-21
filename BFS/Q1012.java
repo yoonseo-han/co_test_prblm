@@ -1,4 +1,6 @@
-package BFS.Baekjoon;
+//https://www.acmicpc.net/problem/1012
+
+package BFS;
 
 import java.util.LinkedList;
 import java.util.Queue;

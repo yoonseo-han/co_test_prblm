@@ -1,4 +1,6 @@
-package DFS.Baekjoon;
+//https://www.acmicpc.net/problem/10026
+
+package DFS;
 
 import java.util.Scanner;
 

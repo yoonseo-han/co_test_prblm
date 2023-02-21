@@ -3,7 +3,8 @@
         {
             "name": "Mac",
             "includePath": [
-                "${workspaceFolder}/**"
+                "${workspaceFolder}/**",
+                "/opt/homebrew/Cellar/gcc/11.2.0_3/include/c++/11/tr1"
             ],
             "defines": [],
             "macFrameworkPath": [],
