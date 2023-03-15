@@ -1,5 +1,7 @@
 package Leetcode_100;
 
+//REDOOOOOO!!!!!!!
+
 import java.util.*;
 
 class Solution{
