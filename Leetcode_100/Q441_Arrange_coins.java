@@ -2,6 +2,8 @@ package Leetcode_100;
 
 class Solution {
     public static int arrangeCoins(int n) {
+        //edge case
+        if(n==0 || n==1) return n;
         int rank = 0;
         for(int i=1; i<=n; i++) {
             rank += i;
