@@ -7,6 +7,9 @@ class Solution {
         HashMap<Character, String> store = new HashMap<>();
         String [] storeString = s.split(" ");
 
+        //If num of words X mathc
+        if(pattern.length() != storeString.length) return false;
+
         for(int i=0; i<pattern.length(); i++) {
             char tempChar = pattern.charAt(i);
             //Where key already exist
