@@ -7,7 +7,7 @@ class Solution {
         //For negative numbers
         if (num < 0) return "-" + convertToBase7(-num);
 
-        //Concatenate result to string
+        //Concatenate result to string : Final result
         if (num < 7) return Integer.toString(num);
 
         //Concatenate latest result
