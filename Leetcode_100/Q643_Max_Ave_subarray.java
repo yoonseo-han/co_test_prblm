@@ -19,7 +19,7 @@ class Solution {
             max = Math.max(max, sum);
         }
 
-        return max/k;
+        return max / 1.0 / k;
     }
     public static void main (String strs[]) {
         int [] nums = {1,12,-5,-6,50,3};
