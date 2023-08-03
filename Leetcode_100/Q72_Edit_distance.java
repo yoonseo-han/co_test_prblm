@@ -35,10 +35,6 @@ class Solution {
             }
         }
         return cost[m][n];
-
-
-
-        return 0;
     }
     public static void main(String strs[]) {
         String word1 = "horse";
