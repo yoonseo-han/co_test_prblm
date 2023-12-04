@@ -2,7 +2,6 @@ package Leetcode_100;
 
 class Solution {
     public static int[] sortArrayByParityII(int[] A) {
-        int[] res = new int[A.length];
 
         //Get first even entry at wrong index and odd entry at wrong index
         int even = 0;
