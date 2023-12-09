@@ -10,7 +10,8 @@ class Solution {
         Stack<List<Integer>> tempResult = new Stack<>();
         Queue<TreeNode> tempStore = new LinkedList<>();
 
-        tempStore.add(root);
+        if(root!=null) tempStore.add(root);
+        
         while(!tempStore.isEmpty()) {
             int levelSize = tempStore.size();
             List<Integer> level = new ArrayList<>();
