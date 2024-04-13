@@ -23,6 +23,7 @@ class Solution {
             resultList.next = tempNode;
             resultList = resultList.next;
         }
+        
         //If both list reached end
         if(list1 == null && list2 == null) {
             //Erase last node

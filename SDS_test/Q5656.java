@@ -8,7 +8,10 @@ class Solution {
     //Global variable defined for map
     static int[][] map;
 
-    public static void main (String strs[]) throws IOException {
+    public static void main (String strs[]) while (scanner.hasNextLine()) {
+            String str = scanner.nextLine();
+            System.out.println(str);
+        }n {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st;
 

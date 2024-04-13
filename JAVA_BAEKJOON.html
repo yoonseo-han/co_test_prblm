@@ -1,0 +1,853 @@
+<!doctype html>
+<html lang="ko">
+                                                                                <head>
+                <script type="text/javascript">if (!window.T) { window.T = {} }
+window.T.config = {"TOP_SSL_URL":"https://www.tistory.com","PREVIEW":false,"ROLE":"guest","PREV_PAGE":"","NEXT_PAGE":"","BLOG":{"id":3507082,"name":"mishuni","title":"차곡차곡 창고","isDormancy":false,"nickName":"미슈니","status":"open","profileStatus":"normal"},"NEED_COMMENT_LOGIN":false,"COMMENT_LOGIN_CONFIRM_MESSAGE":"","LOGIN_URL":"https://www.tistory.com/auth/login/?redirectUrl=https://mishuni.tistory.com/105","DEFAULT_URL":"https://mishuni.tistory.com","USER":{"name":null,"homepage":null,"id":0,"profileImage":null},"SUBSCRIPTION":{"status":"none","isConnected":false,"isPending":false,"isWait":false,"isProcessing":false,"isNone":true},"IS_LOGIN":false,"HAS_BLOG":false,"IS_SUPPORT":false,"TOP_URL":"http://www.tistory.com","JOIN_URL":"https://www.tistory.com/member/join","ROLE_GROUP":"visitor"};
+window.T.entryInfo = {"entryId":105,"isAuthor":false,"categoryId":827622,"categoryLabel":"Algorithms/Baekjoon"};
+window.appInfo = {"domain":"tistory.com","topUrl":"https://www.tistory.com","loginUrl":"https://www.tistory.com/auth/login","logoutUrl":"https://www.tistory.com/auth/logout"};
+window.initData = {};
+
+window.TistoryBlog = {
+    basePath: "",
+    url: "https://mishuni.tistory.com",
+    tistoryUrl: "https://mishuni.tistory.com",
+    manageUrl: "https://mishuni.tistory.com/manage",
+    token: "NqitHWN2SAiY3F21sQ2oby9qBdCjKb2wXJrcI6E/AF1J5M+1ltPM+DwX6KIBoLQi"
+};
+var servicePath = "";
+var blogURL = "";</script>
+
+                
+                
+                
+                        <!-- BusinessLicenseInfo - START -->
+        
+            <link href="https://tistory1.daumcdn.net/tistory_admin/userblog/tistory-735968968fcf248f01a50bf5a0e014f57d8db1d2/static/plugin/BusinessLicenseInfo/style.css" rel="stylesheet" type="text/css"/>
+
+            <script>function switchFold(entryId) {
+    var businessLayer = document.getElementById("businessInfoLayer_" + entryId);
+
+    if (businessLayer) {
+        if (businessLayer.className.indexOf("unfold_license") > 0) {
+            businessLayer.className = "business_license_layer";
+        } else {
+            businessLayer.className = "business_license_layer unfold_license";
+        }
+    }
+}
+</script>
+
+        
+        <!-- BusinessLicenseInfo - END -->
+        <!-- DaumShow - START -->
+        <style type="text/css">#daumSearchBox {
+    height: 21px;
+    background-image: url(//i1.daumcdn.net/imgsrc.search/search_all/show/tistory/plugin/bg_search2_2.gif);
+    margin: 5px auto;
+    padding: 0;
+}
+
+#daumSearchBox input {
+    background: none;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+#daumSearchBox #daumLogo {
+    width: 34px;
+    height: 21px;
+    float: left;
+    margin-right: 5px;
+    background-image: url(//i1.daumcdn.net/img-media/tistory/img/bg_search1_2_2010ci.gif);
+}
+
+#daumSearchBox #show_q {
+    background-color: transparent;
+    border: none;
+    font: 12px Gulim, Sans-serif;
+    color: #555;
+    margin-top: 4px;
+    margin-right: 15px;
+    float: left;
+}
+
+#daumSearchBox #show_btn {
+    background-image: url(//i1.daumcdn.net/imgsrc.search/search_all/show/tistory/plugin/bt_search_2.gif);
+    width: 37px;
+    height: 21px;
+    float: left;
+    margin: 0;
+    cursor: pointer;
+    text-indent: -1000em;
+}
+</style>
+
+        <!-- DaumShow - END -->
+
+<!-- System - START -->
+<script src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async="async" data-ad-host="ca-host-pub-9691043933427338" data-ad-client="ca-pub-8164980557435370"></script>
+<!-- System - END -->
+
+        <!-- TistoryProfileLayer - START -->
+        <link href="https://tistory1.daumcdn.net/tistory_admin/userblog/tistory-735968968fcf248f01a50bf5a0e014f57d8db1d2/static/plugin/TistoryProfileLayer/style.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="https://tistory1.daumcdn.net/tistory_admin/userblog/tistory-735968968fcf248f01a50bf5a0e014f57d8db1d2/static/plugin/TistoryProfileLayer/script.js"></script>
+
+        <!-- TistoryProfileLayer - END -->
+
+                
+                <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="format-detection" content="telephone=no">
+<script src="//t1.daumcdn.net/tistory_admin/lib/jquery/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+<script src="//t1.daumcdn.net/tistory_admin/lib/lightbox/js/lightbox-v2.10.0.min.js" defer></script>
+<script type="text/javascript" src="//t1.daumcdn.net/tiara/js/v1/tiara.min.js"></script><meta name="referrer" content="always"/>
+<meta name="google-adsense-platform-account" content="ca-host-pub-9691043933427338"/>
+<meta name="google-adsense-platform-domain" content="tistory.com"/>
+<meta name="google-adsense-account" content="ca-pub-8164980557435370"/>
+<meta name="description" content="--- 문제 --- --- 코드 --- import java.io.BufferedReader; import java.io.IOException; import java.io.InputStreamReader; import java.util.ArrayList; import java.util.LinkedList; import java.util.Queue; import java.util.StringTokenizer; public class Sw14888 { public static int stoi(String s) { return Integer.parseInt(s); } public static int[] numbers, operates; public static int N, result; public stati.."/>
+<meta property="og:type" content="article"/>
+<meta property="og:url" content="https://mishuni.tistory.com/105"/>
+<meta property="og.article.author" content="미슈니"/>
+<meta property="og:site_name" content="차곡차곡 창고"/>
+<meta property="og:title" content="[Java] 백준 알고리즘 14888번 문제 : 삼성 SW 역량 테스트 기출 문제 - 연산자 끼워넣기 (BFS ,너비 우선 탐색)"/>
+<meta name="by" content="미슈니"/>
+<meta property="og:description" content="--- 문제 --- --- 코드 --- import java.io.BufferedReader; import java.io.IOException; import java.io.InputStreamReader; import java.util.ArrayList; import java.util.LinkedList; import java.util.Queue; import java.util.StringTokenizer; public class Sw14888 { public static int stoi(String s) { return Integer.parseInt(s); } public static int[] numbers, operates; public static int N, result; public stati.."/>
+<meta property="og:image" content="https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FpGM1C%2Fbtq2N0wN6rQ%2Fqkws87ssRQvSZ0Kg2OK61k%2Fimg.png"/>
+<meta property="article:section" content="'IT 인터넷'"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:site" content="@TISTORY"/>
+<meta name="twitter:title" content="[Java] 백준 알고리즘 14888번 문제 : 삼성 SW 역량 테스트 기출 문제 - 연산자 끼워넣기 (BFS ,너비 우선 탐색)"/>
+<meta name="twitter:description" content="--- 문제 --- --- 코드 --- import java.io.BufferedReader; import java.io.IOException; import java.io.InputStreamReader; import java.util.ArrayList; import java.util.LinkedList; import java.util.Queue; import java.util.StringTokenizer; public class Sw14888 { public static int stoi(String s) { return Integer.parseInt(s); } public static int[] numbers, operates; public static int N, result; public stati.."/>
+<meta property="twitter:image" content="https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FpGM1C%2Fbtq2N0wN6rQ%2Fqkws87ssRQvSZ0Kg2OK61k%2Fimg.png"/>
+<meta content="https://mishuni.tistory.com/105" property="dg:plink" content="https://mishuni.tistory.com/105"/>
+<meta name="plink"/>
+<meta name="title" content="[Java] 백준 알고리즘 14888번 문제 : 삼성 SW 역량 테스트 기출 문제 - 연산자 끼워넣기 (BFS ,너비 우선 탐색)"/>
+<meta name="article:media_name" content="차곡차곡 창고"/>
+<meta property="article:mobile_url" content="https://mishuni.tistory.com/m/105"/>
+<meta property="article:pc_url" content="https://mishuni.tistory.com/105"/>
+<meta property="article:mobile_view_url" content="https://mishuni.tistory.com/m/105"/>
+<meta property="article:pc_view_url" content="https://mishuni.tistory.com/105"/>
+<meta property="article:talk_channel_view_url" content="https://mishuni.tistory.com/m/105"/>
+<meta property="article:pc_service_home" content="https://www.tistory.com"/>
+<meta property="article:mobile_service_home" content="https://www.tistory.com/m"/>
+<meta property="article:txid" content="3507082_105"/>
+<meta property="article:published_time" content="2021-04-17T16:52:08+09:00"/>
+<meta property="og:regDate" content="20210417045208"/>
+<meta property="article:modified_time" content="2021-04-17T16:52:08+09:00"/>
+<link rel="icon" sizes="any" href="https://t1.daumcdn.net/tistory_admin/favicon/tistory_favicon_32x32.ico"/>
+<link rel="icon" type="image/svg+xml" href="https://t1.daumcdn.net/tistory_admin/top_v2/bi-tistory-favicon.svg"/>
+<link rel="apple-touch-icon" href="https://t1.daumcdn.net/tistory_admin/top_v2/tistory-apple-touch-favicon.png"/>
+<link rel="stylesheet" type="text/css" href="https://t1.daumcdn.net/tistory_admin/lib/lightbox/css/lightbox.min.css"/>
+<link rel="stylesheet" type="text/css" href="https://tistory1.daumcdn.net/tistory_admin/userblog/tistory-735968968fcf248f01a50bf5a0e014f57d8db1d2/static/style/font.css"/>
+<link rel="stylesheet" type="text/css" href="https://tistory1.daumcdn.net/tistory_admin/userblog/tistory-735968968fcf248f01a50bf5a0e014f57d8db1d2/static/style/content.css"/>
+<link rel="stylesheet" type="text/css" href="https://tistory1.daumcdn.net/tistory_admin/userblog/tistory-735968968fcf248f01a50bf5a0e014f57d8db1d2/static/style/uselessPMargin.css"/>
+<script type="text/javascript">(function() {
+    var tjQuery = jQuery.noConflict(true);
+    window.tjQuery = tjQuery;
+    window.orgjQuery = window.jQuery; window.jQuery = tjQuery;
+    window.jQuery = window.orgjQuery; delete window.orgjQuery;
+})()</script>
+<script type="text/javascript" src="https://tistory1.daumcdn.net/tistory_admin/userblog/tistory-735968968fcf248f01a50bf5a0e014f57d8db1d2/static/script/base.js"></script>
+<script type="text/javascript" src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+
+                
+<meta charset="UTF-8">
+<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+<title>[Java] 백준 알고리즘 14888번 문제 : 삼성 SW 역량 테스트 기출 문제 - 연산자 끼워넣기 (BFS ,너비 우선 탐색)</title>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+});
+</script>
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+
+<link rel="stylesheet" href="https://tistory1.daumcdn.net/tistory/3507082/skin/style.css?_version_=1690962958">
+<script src="//t1.daumcdn.net/tistory_admin/lib/jquery/jquery-1.12.4.min.js"></script>
+
+                
+                
+                <style type="text/css">.another_category {
+    border: 1px solid #E5E5E5;
+    padding: 10px 10px 5px;
+    margin: 10px 0;
+    clear: both;
+}
+
+.another_category h4 {
+    font-size: 12px !important;
+    margin: 0 !important;
+    border-bottom: 1px solid #E5E5E5 !important;
+    padding: 2px 0 6px !important;
+}
+
+.another_category h4 a {
+    font-weight: bold !important;
+}
+
+.another_category table {
+    table-layout: fixed;
+    border-collapse: collapse;
+    width: 100% !important;
+    margin-top: 10px !important;
+}
+
+* html .another_category table {
+    width: auto !important;
+}
+
+*:first-child + html .another_category table {
+    width: auto !important;
+}
+
+.another_category th, .another_category td {
+    padding: 0 0 4px !important;
+}
+
+.another_category th {
+    text-align: left;
+    font-size: 12px !important;
+    font-weight: normal;
+    word-break: break-all;
+    overflow: hidden;
+    line-height: 1.5;
+}
+
+.another_category td {
+    text-align: right;
+    width: 80px;
+    font-size: 11px;
+}
+
+.another_category th a {
+    font-weight: normal;
+    text-decoration: none;
+    border: none !important;
+}
+
+.another_category th a.current {
+    font-weight: bold;
+    text-decoration: none !important;
+    border-bottom: 1px solid !important;
+}
+
+.another_category th span {
+    font-weight: normal;
+    text-decoration: none;
+    font: 10px Tahoma, Sans-serif;
+    border: none !important;
+}
+
+.another_category_color_gray, .another_category_color_gray h4 {
+    border-color: #E5E5E5 !important;
+}
+
+.another_category_color_gray * {
+    color: #909090 !important;
+}
+
+.another_category_color_gray th a.current {
+    border-color: #909090 !important;
+}
+
+.another_category_color_gray h4, .another_category_color_gray h4 a {
+    color: #737373 !important;
+}
+
+.another_category_color_red, .another_category_color_red h4 {
+    border-color: #F6D4D3 !important;
+}
+
+.another_category_color_red * {
+    color: #E86869 !important;
+}
+
+.another_category_color_red th a.current {
+    border-color: #E86869 !important;
+}
+
+.another_category_color_red h4, .another_category_color_red h4 a {
+    color: #ED0908 !important;
+}
+
+.another_category_color_green, .another_category_color_green h4 {
+    border-color: #CCE7C8 !important;
+}
+
+.another_category_color_green * {
+    color: #64C05B !important;
+}
+
+.another_category_color_green th a.current {
+    border-color: #64C05B !important;
+}
+
+.another_category_color_green h4, .another_category_color_green h4 a {
+    color: #3EA731 !important;
+}
+
+.another_category_color_blue, .another_category_color_blue h4 {
+    border-color: #C8DAF2 !important;
+}
+
+.another_category_color_blue * {
+    color: #477FD6 !important;
+}
+
+.another_category_color_blue th a.current {
+    border-color: #477FD6 !important;
+}
+
+.another_category_color_blue h4, .another_category_color_blue h4 a {
+    color: #1960CA !important;
+}
+
+.another_category_color_violet, .another_category_color_violet h4 {
+    border-color: #E1CEEC !important;
+}
+
+.another_category_color_violet * {
+    color: #9D64C5 !important;
+}
+
+.another_category_color_violet th a.current {
+    border-color: #9D64C5 !important;
+}
+
+.another_category_color_violet h4, .another_category_color_violet h4 a {
+    color: #7E2CB5 !important;
+}
+</style>
+
+                
+                <link rel="stylesheet" type="text/css" href="https://tistory1.daumcdn.net/tistory_admin/userblog/tistory-735968968fcf248f01a50bf5a0e014f57d8db1d2/static/style/revenue.css"/>
+<link rel="canonical" href="https://mishuni.tistory.com/105"/>
+
+<!-- BEGIN STRUCTURED_DATA -->
+<script type="application/ld+json">
+    {"@context":"http://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@id":"https://mishuni.tistory.com/105","name":null},"url":"https://mishuni.tistory.com/105","headline":"[Java] 백준 알고리즘 14888번 문제 : 삼성 SW 역량 테스트 기출 문제 - 연산자 끼워넣기 (BFS ,너비 우선 탐색)","description":"--- 문제 --- --- 코드 --- import java.io.BufferedReader; import java.io.IOException; import java.io.InputStreamReader; import java.util.ArrayList; import java.util.LinkedList; import java.util.Queue; import java.util.StringTokenizer; public class Sw14888 { public static int stoi(String s) { return Integer.parseInt(s); } public static int[] numbers, operates; public static int N, result; public stati..","author":{"@type":"Person","name":"미슈니","logo":null},"image":{"@type":"ImageObject","url":"https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FpGM1C%2Fbtq2N0wN6rQ%2Fqkws87ssRQvSZ0Kg2OK61k%2Fimg.png","width":"800px","height":"800px"},"datePublished":"20210417T16:52:08","dateModified":"20210417T16:52:08","publisher":{"@type":"Organization","name":"TISTORY","logo":{"@type":"ImageObject","url":"https://t1.daumcdn.net/tistory_admin/static/images/openGraph/opengraph.png","width":"800px","height":"800px"}}}
+</script>
+<!-- END STRUCTURED_DATA -->
+<link rel="stylesheet" type="text/css" href="https://tistory1.daumcdn.net/tistory_admin/userblog/tistory-735968968fcf248f01a50bf5a0e014f57d8db1d2/static/style/dialog.css"/>
+<link rel="stylesheet" type="text/css" href="//t1.daumcdn.net/tistory_admin/www/style/top/font.css"/>
+<link rel="stylesheet" type="text/css" href="https://tistory1.daumcdn.net/tistory_admin/userblog/tistory-735968968fcf248f01a50bf5a0e014f57d8db1d2/static/style/postBtn.css"/>
+<link rel="stylesheet" type="text/css" href="https://tistory1.daumcdn.net/tistory_admin/userblog/tistory-735968968fcf248f01a50bf5a0e014f57d8db1d2/static/style/comment.css"/>
+<link rel="stylesheet" type="text/css" href="https://tistory1.daumcdn.net/tistory_admin/userblog/tistory-735968968fcf248f01a50bf5a0e014f57d8db1d2/static/style/tistory.css"/>
+<script type="text/javascript" src="https://tistory1.daumcdn.net/tistory_admin/userblog/tistory-735968968fcf248f01a50bf5a0e014f57d8db1d2/static/script/common.js"></script>
+<script type="text/javascript" src="https://tistory1.daumcdn.net/tistory_admin/userblog/tistory-735968968fcf248f01a50bf5a0e014f57d8db1d2/static/script/comment.js" defer=""></script>
+
+                
+                </head>
+                                                <body id="tt-body-page" class="color-gray post-type-text paging-view-more">
+                
+                
+                
+
+<div id="acc-nav">
+	<a href="#content">본문 바로가기</a>
+</div>
+<div id="wrap">
+	<header id="header">
+		<h1><a href="https://mishuni.tistory.com/">차곡차곡 창고</a></h1>
+		<button type="button" class="mobile-menu"><span>메뉴</span></button>
+		<div class="menu">
+			<nav id="gnb">
+				<ul class="tt_category"><li class=""><a href="/category" class="link_tit"> IT warehouse <span class="c_cnt">(136)</span> </a>
+  <ul class="category_list"><li class=""><a href="/category/Algorithms" class="link_item"> Algorithms <span class="c_cnt">(98)</span> </a>
+  <ul class="sub_category_list"><li class=""><a href="/category/Algorithms/Baekjoon" class="link_sub_item"> Baekjoon <span class="c_cnt">(24)</span> </a></li>
+<li class=""><a href="/category/Algorithms/Programmers" class="link_sub_item"> Programmers <span class="c_cnt">(31)</span> </a></li>
+<li class=""><a href="/category/Algorithms/SW%20Expert%20Academy" class="link_sub_item"> SW Expert Academy <span class="c_cnt">(30)</span> </a></li>
+<li class=""><a href="/category/Algorithms/Coding%20Test%20Practice" class="link_sub_item"> Coding Test Practice <span class="c_cnt">(10)</span> </a></li>
+<li class=""><a href="/category/Algorithms/LeetCode" class="link_sub_item"> LeetCode <span class="c_cnt">(2)</span> </a></li>
+</ul>
+</li>
+<li class=""><a href="/category/ML%20%26%20AI" class="link_item"> ML &amp; AI <span class="c_cnt">(8)</span> </a>
+  <ul class="sub_category_list"><li class=""><a href="/category/ML%20%26%20AI/Paper%20Review" class="link_sub_item"> Paper Review <span class="c_cnt">(8)</span> </a></li>
+</ul>
+</li>
+<li class=""><a href="/category/Computer%20Science" class="link_item"> Computer Science <span class="c_cnt">(2)</span> </a>
+  <ul class="sub_category_list"><li class=""><a href="/category/Computer%20Science/Data%20Structure" class="link_sub_item"> Data Structure <span class="c_cnt">(1)</span> </a></li>
+<li class=""><a href="/category/Computer%20Science/Network" class="link_sub_item"> Network <span class="c_cnt">(1)</span> </a></li>
+</ul>
+</li>
+<li class=""><a href="/category/IT%20Tools" class="link_item"> IT Tools <span class="c_cnt">(12)</span> </a>
+  <ul class="sub_category_list"><li class=""><a href="/category/IT%20Tools/Github" class="link_sub_item"> Github <span class="c_cnt">(3)</span> </a></li>
+<li class=""><a href="/category/IT%20Tools/k8s%20%26%20Docker" class="link_sub_item"> k8s &amp; Docker <span class="c_cnt">(3)</span> </a></li>
+<li class=""><a href="/category/IT%20Tools/Database" class="link_sub_item"> Database <span class="c_cnt">(6)</span> </a></li>
+</ul>
+</li>
+<li class=""><a href="/category/Programming" class="link_item"> Programming <span class="c_cnt">(14)</span> </a>
+  <ul class="sub_category_list"><li class=""><a href="/category/Programming/Linux" class="link_sub_item"> Linux <span class="c_cnt">(7)</span> </a></li>
+<li class=""><a href="/category/Programming/Python" class="link_sub_item"> Python <span class="c_cnt">(5)</span> </a></li>
+<li class=""><a href="/category/Programming/Mac" class="link_sub_item"> Mac <span class="c_cnt">(2)</span> </a></li>
+</ul>
+</li>
+<li class=""><a href="/category/Mathematics" class="link_item"> Mathematics <span class="c_cnt">(0)</span> </a></li>
+</ul>
+</li>
+</ul>
+
+			</nav>
+			<div class="social-link">
+				
+				
+				
+				
+			</div>
+
+			<div class="box_visit">
+				<dl class="data_today">
+					<dt class="title_visit">Today</dt>
+					<dd class="item_visit">3</dd>
+				</dl>
+				<dl class="data_yesterday">
+					<dt class="title_visit">Yesterday</dt>
+					<dd class="item_visit">81</dd>
+				</dl>
+				<dl class="data_total">
+					<dt class="title_visit">Total</dt>
+					<dd class="item_visit">82,639</dd>
+				</dl>
+			</div>
+
+			<p>POWERED BY TISTORY</p>
+
+
+			
+
+
+
+		</div>
+		<div class="search">
+			
+					<input type="text" name="search" value="" placeholder="검색내용을 입력하세요." onkeypress="if (event.keyCode == 13) { try {
+    window.location.href = '/search' + '/' + looseURIEncode(document.getElementsByName('search')[0].value);
+    document.getElementsByName('search')[0].value = '';
+    return false;
+} catch (e) {} }">
+					<button type="submit" onclick="try {
+    window.location.href = '/search' + '/' + looseURIEncode(document.getElementsByName('search')[0].value);
+    document.getElementsByName('search')[0].value = '';
+    return false;
+} catch (e) {}">검색</button>
+				
+		</div>
+	</header>
+	<hr>
+	<section class="container">
+		
+		<article id="content">
+			
+
+			
+
+			
+
+			
+
+			<div class="inner">
+				
+
+				            
+                
+	
+	
+		<div class="hgroup">
+			<div class="category">Algorithms/Baekjoon</div>
+			<h1>[Java] 백준 알고리즘 14888번 문제 : 삼성 SW 역량 테스트 기출 문제 - 연산자 끼워넣기 (BFS ,너비 우선 탐색) </h1>
+			<div class="post-meta">
+				<span class="author">미슈니</span>
+				<span class="date">2021. 4. 17. 16:52</span>
+				
+			</div>
+		</div>
+		<div class="entry-content">
+			<script onerror="changeAdsenseToAdfit()" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9527582522912841" crossorigin="anonymous"></script>
+<!-- inventory -->
+<ins class="adsbygoogle" style="margin:50px 0; display:block" data-ad-client="ca-pub-9527582522912841" data-ad-slot="3825649038" data-ad-format="auto" data-full-width-responsive="true" data-ad-type="inventory" data-ad-adfit-unit="DAN-nRFiQiN4avFYIKbk"></ins>
+
+<script id="adsense_script">
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<script>
+    if(window.ObserveAdsenseUnfilledState !== undefined){ ObserveAdsenseUnfilledState(); }
+</script>
+            <!-- System - START -->
+
+<!-- System - END -->
+
+            <div class="tt_article_useless_p_margin contents_style"><p>--- 문제 ---</p>
+<p>&nbsp;</p>
+<p><figure class="imageblock alignCenter" data-filename="스크린샷 2021-04-17 오후 4.51.06.png" data-origin-width="1754" data-origin-height="1400" data-ke-mobilestyle="widthContent"><span data-url="https://blog.kakaocdn.net/dn/pGM1C/btq2N0wN6rQ/qkws87ssRQvSZ0Kg2OK61k/img.png" data-lightbox="lightbox"><img src="https://blog.kakaocdn.net/dn/pGM1C/btq2N0wN6rQ/qkws87ssRQvSZ0Kg2OK61k/img.png" srcset="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FpGM1C%2Fbtq2N0wN6rQ%2Fqkws87ssRQvSZ0Kg2OK61k%2Fimg.png" data-filename="스크린샷 2021-04-17 오후 4.51.06.png" data-origin-width="1754" data-origin-height="1400" data-ke-mobilestyle="widthContent" onerror="this.onerror=null; this.src='//t1.daumcdn.net/tistory_admin/static/images/no-image-v1.png'; this.srcset='//t1.daumcdn.net/tistory_admin/static/images/no-image-v1.png';"/></span></figure>
+</p>
+<p>&nbsp;</p>
+<p>--- 코드 ---</p>
+<p>&nbsp;</p>
+<pre id="code_1618645853157" class="java" data-ke-language="java" data-ke-type="codeblock"><code>import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.StringTokenizer;
+
+public class Sw14888 {
+
+	public static int stoi(String s) {
+		return Integer.parseInt(s);
+	}
+	
+	public static int[] numbers, operates;
+	public static int N, result;
+	public static int min, max;
+	
+	public static void main(String[] args) throws IOException {
+
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringTokenizer st = new StringTokenizer(br.readLine());
+		// 1. Init
+		N = stoi(st.nextToken());
+		result =0 ;
+		
+		numbers = new int[N];
+		operates = new int[4];
+		
+		min = Integer.MAX_VALUE;
+		max = Integer.MIN_VALUE;
+		
+		st= new StringTokenizer(br.readLine());
+		
+		for(int i=0; i&lt;N; ++i) {
+			numbers[i] = stoi(st.nextToken());
+		}
+		
+		st= new StringTokenizer(br.readLine());
+		Queue&lt;ArrayList&lt;Integer&gt;&gt; queue = new LinkedList();
+		
+		ArrayList&lt;Integer&gt; start = new ArrayList();
+		start.add(numbers[0]);
+		for(int i=0; i&lt;4; ++i) {
+			operates[i] = stoi(st.nextToken());
+			start.add(operates[i]);
+		}
+		queue.add(start);
+		
+		// value, +, -, *, /
+		// 2. bfs
+		int cnt = 1;
+		int leaf = 0;
+		int level = 0;
+		while(!queue.isEmpty()) {
+			
+			ArrayList&lt;Integer&gt; info = queue.remove();
+			--cnt;
+			int pre = info.get(0);
+			int opnd = numbers[level+1];
+			
+			for(int i=1; i&lt;=4; ++i) {
+				// 2-1. i번째 연산 갯수가 남아있는 경우
+				if(info.get(i)&gt;0) {
+					// 2-1-1. 마지막 연산자 고르는 경우
+					if(level==N-2) {
+						// 2-1-1-1. 연산후에 최대,최솟값 찾기
+						int res = operate(pre,opnd,i);
+						if(res&lt;min) min = res;
+						if(res&gt;max) max = res;
+					}
+					else {
+						// 2-1-1-2. i번째 연산자로 연산 후, 연산 값, 현재 남은 연산 갯수
+						// 저장하고 queue에 올리기
+						ArrayList&lt;Integer&gt; tmp = (ArrayList&lt;Integer&gt;) info.clone();
+						tmp.set(0, operate(pre,opnd,i));
+						tmp.set(i, tmp.get(i)-1);
+						queue.add(tmp);
+						++leaf;
+					}
+				}
+			}
+			// 2-2. 이전 너비(회차) 끝난 경우 다음 단계로 넘어가기
+			if(cnt==0) {
+				cnt= leaf;
+				leaf = 0;
+				++level;
+			}
+		}
+		System.out.println(max);
+		System.out.println(min);
+		
+	}
+	
+	public static int operate(int a, int b, int oper) {
+		
+		switch(oper) {
+		
+		case 1:
+			return a+b;
+		case 2:
+			return a-b;
+		case 3:
+			return a*b;
+		case 4:
+			return a/b;
+		
+		}
+		return 0;
+		
+	}
+
+}
+</code></pre>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>--- 출처 ---</p>
+<p><a href="https://www.acmicpc.net/problem/14888" target="_blank" rel="noopener">www.acmicpc.net/problem/14888</a></p>
+<figure id="og_1618645846085" contenteditable="false" data-ke-type="opengraph" data-og-type="website" data-og-title="14888번: 연산자 끼워넣기" data-og-description="첫째 줄에 수의 개수 N(2 &le; N &le; 11)가 주어진다. 둘째 줄에는 A1, A2, ..., AN이 주어진다. (1 &le; Ai &le; 100) 셋째 줄에는 합이 N-1인 4개의 정수가 주어지는데, 차례대로 덧셈(+)의 개수, 뺄셈(-)의 개수,&nbsp;" data-og-host="www.acmicpc.net" data-og-source-url="https://www.acmicpc.net/problem/14888" data-og-url="https://www.acmicpc.net/problem/14888" data-og-image="https://scrap.kakaocdn.net/dn/eUfBJ/hyJTyey3IB/b14eVV7OibRvGG8eBWkSm0/img.png?width=1200&amp;height=630&amp;face=0_0_1200_630"><a href="https://www.acmicpc.net/problem/14888" target="_blank" rel="noopener" data-source-url="https://www.acmicpc.net/problem/14888">
+<div class="og-image" style="background-image: url('https://scrap.kakaocdn.net/dn/eUfBJ/hyJTyey3IB/b14eVV7OibRvGG8eBWkSm0/img.png?width=1200&amp;height=630&amp;face=0_0_1200_630');">&nbsp;</div>
+<div class="og-text">
+<p class="og-title">14888번: 연산자 끼워넣기</p>
+<p class="og-desc">첫째 줄에 수의 개수 N(2 &le; N &le; 11)가 주어진다. 둘째 줄에는 A1, A2, ..., AN이 주어진다. (1 &le; Ai &le; 100) 셋째 줄에는 합이 N-1인 4개의 정수가 주어지는데, 차례대로 덧셈(+)의 개수, 뺄셈(-)의 개수,&nbsp;</p>
+<p class="og-host">www.acmicpc.net</p>
+</div>
+</a></figure>
+<p>&nbsp;</p></div>
+                    <!-- System - START -->
+        <div class="revenue_unit_wrap">
+  <div class="revenue_unit_item adsense responsive">
+    <div class="revenue_unit_info">반응형</div>
+    <script src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async="async"></script>
+    <ins class="adsbygoogle" style="display: block;" data-ad-host="ca-host-pub-9691043933427338" data-ad-client="ca-pub-8164980557435370" data-ad-format="auto"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+</div>
+        <!-- System - END -->
+
+
+                    <div class="container_postbtn #post_button_group">
+  <div class="postbtn_like"><script>window.ReactionButtonType = 'reaction';
+window.ReactionApiUrl = '//mishuni.tistory.com/reaction';
+window.ReactionReqBody = {
+    entryId: 105
+}</script>
+<div class="wrap_btn" id="reaction-105"></div>
+<script src="https://tistory1.daumcdn.net/tistory_admin/userblog/tistory-735968968fcf248f01a50bf5a0e014f57d8db1d2/static/script/reaction-button-container.min.js"></script><div class="wrap_btn wrap_btn_share"><button type="button" class="btn_post sns_btn btn_share" aria-expanded="false" data-thumbnail-url="https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FpGM1C%2Fbtq2N0wN6rQ%2Fqkws87ssRQvSZ0Kg2OK61k%2Fimg.png" data-title="[Java] 백준 알고리즘 14888번 문제 : 삼성 SW 역량 테스트 기출 문제 - 연산자 끼워넣기 (BFS ,너비 우선 탐색)" data-description="--- 문제 --- --- 코드 --- import java.io.BufferedReader; import java.io.IOException; import java.io.InputStreamReader; import java.util.ArrayList; import java.util.LinkedList; import java.util.Queue; import java.util.StringTokenizer; public class Sw14888 { public static int stoi(String s) { return Integer.parseInt(s); } public static int[] numbers, operates; public static int N, result; public stati.." data-profile-image="https://tistory1.daumcdn.net/tistory/3507082/attach/e65fdc1ac63e43138b7c7713c54d73dc" data-profile-name="미슈니" data-pc-url="https://mishuni.tistory.com/105" data-relative-pc-url="/105" data-blog-title="차곡차곡 창고"><span class="ico_postbtn ico_share">공유하기</span></button>
+  <div class="layer_post" id="tistorySnsLayer"></div>
+</div><div class="wrap_btn wrap_btn_etc" data-entry-id="105" data-entry-visibility="public" data-category-visibility="public"><button type="button" class="btn_post btn_etc2" aria-expanded="false"><span class="ico_postbtn ico_etc">게시글 관리</span></button>
+  <div class="layer_post" id="tistoryEtcLayer"></div>
+</div></div>
+<button type="button" class="btn_menu_toolbar btn_subscription  #subscribe" data-blog-id="3507082" data-url="https://mishuni.tistory.com/105" data-device="web_pc"><em class="txt_state">구독하기</em><strong class="txt_tool_id">차곡차곡 창고</strong><span class="img_common_tistory ico_check_type1"></span></button>  <div data-tistory-react-app="SupportButton"></div>
+</div>
+
+                    <!-- PostListinCategory - START -->
+<div class="another_category another_category_color_gray">
+  <h4>'<a href="/category/Algorithms">Algorithms</a> &gt; <a href="/category/Algorithms/Baekjoon">Baekjoon</a>' 카테고리의 다른 글</h4>
+  <table>
+    <tr>
+      <th><a href="/107">[Java] 백준 알고리즘 14890번 문제 : 삼성 SW 역량 테스트 기출 문제 - 경사로 (Simulation, 시뮬레이션)</a>&nbsp;&nbsp;<span>(0)</span></th>
+      <td>2021.04.17</td>
+    </tr>
+    <tr>
+      <th><a href="/106">[Java] 백준 알고리즘 14889번 문제 : 삼성 SW 역량 테스트 기출 문제 - 스타트와 링크 (DFS ,깊이 우선 탐색)</a>&nbsp;&nbsp;<span>(0)</span></th>
+      <td>2021.04.17</td>
+    </tr>
+    <tr>
+      <th><a href="/104">[Java] 백준 알고리즘 14503번 문제 : 삼성 SW 역량 테스트 기출 문제 - 로봇 청소기 (Simulation ,시뮬레이션)</a>&nbsp;&nbsp;<span>(0)</span></th>
+      <td>2021.04.17</td>
+    </tr>
+    <tr>
+      <th><a href="/103">[Java] 백준 알고리즘 14502번 문제 : 삼성 SW 역량 테스트 기출 문제 - 연구소 (DFS, 깊이 우선 탐색, BFS, 너비 우선 탐</a>&nbsp;&nbsp;<span>(0)</span></th>
+      <td>2021.04.17</td>
+    </tr>
+    <tr>
+      <th><a href="/102">[Java] 백준 알고리즘 14500번 문제 : 삼성 SW 역량 테스트 기출 문제 - 테트로미노 (DFS, 깊이 우선 탐색)</a>&nbsp;&nbsp;<span>(0)</span></th>
+      <td>2021.04.16</td>
+    </tr>
+  </table>
+</div>
+
+<!-- PostListinCategory - END -->
+
+		</div>
+		
+			<div class="tags">
+				<h2>태그</h2>
+				<div class="items">
+					<a href="/tag/BFS" rel="tag">BFS</a>, <a href="/tag/Java%20SW" rel="tag">Java SW</a>, <a href="/tag/%EB%84%88%EB%B9%84%20%EC%9A%B0%EC%84%A0%20%ED%83%90%EC%83%89" rel="tag">너비 우선 탐색</a>, <a href="/tag/%EB%B0%B1%EC%A4%80%2014888" rel="tag">백준 14888</a>, <a href="/tag/%EB%B0%B1%EC%A4%80%20%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98" rel="tag">백준 알고리즘</a>, <a href="/tag/%EC%82%BC%EC%84%B1%20SW%20%EC%97%AD%EB%9F%89%20%ED%85%8C%EC%8A%A4%ED%8A%B8" rel="tag">삼성 SW 역량 테스트</a>, <a href="/tag/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98" rel="tag">알고리즘</a>, <a href="/tag/%EC%9E%90%EB%B0%94%20bfs" rel="tag">자바 bfs</a>, <a href="/tag/%EC%9E%90%EB%B0%94%20%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98" rel="tag">자바 알고리즘</a>, <a href="/tag/%EC%BD%94%EB%94%A9%20%ED%85%8C%EC%8A%A4%ED%8A%B8" rel="tag">코딩 테스트</a>
+				</div>
+			</div>
+		
+
+		
+			<div class="related-articles">
+				<h2><strong>'Algorithms/Baekjoon'</strong> Related Articles</h2>
+				<ul>
+					
+						<li>
+							<a href="/107?category=827622">
+								<span class="thum">
+									
+										<img src="//i1.daumcdn.net/thumb/C264x200/?fname=https://img1.daumcdn.net/thumb/R750x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FoarMO%2Fbtq2Nq3XJSS%2FAP630tRwX0kR2KGqnyDFcK%2Fimg.png" alt="">
+									
+								</span>
+								<span class="title">[Java] 백준 알고리즘 14890번 문제 : 삼성 SW 역량 테스트 기출 문제 - 경사로 (Simulation, 시뮬레이션)</span>
+							</a>
+						</li>
+					
+						<li>
+							<a href="/106?category=827622">
+								<span class="thum">
+									
+										<img src="//i1.daumcdn.net/thumb/C264x200/?fname=https://img1.daumcdn.net/thumb/R750x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbqxMYR%2Fbtq2MaVhCR2%2FLNGpJHI42ivPWKifWhANo0%2Fimg.png" alt="">
+									
+								</span>
+								<span class="title">[Java] 백준 알고리즘 14889번 문제 : 삼성 SW 역량 테스트 기출 문제 - 스타트와 링크 (DFS ,깊이 우선 탐색)</span>
+							</a>
+						</li>
+					
+						<li>
+							<a href="/104?category=827622">
+								<span class="thum">
+									
+										<img src="//i1.daumcdn.net/thumb/C264x200/?fname=https://img1.daumcdn.net/thumb/R750x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2F2bTIr%2Fbtq2OQghu5t%2FIQXGS0LaZjfYGlX6M3xQLK%2Fimg.png" alt="">
+									
+								</span>
+								<span class="title">[Java] 백준 알고리즘 14503번 문제 : 삼성 SW 역량 테스트 기출 문제 - 로봇 청소기 (Simulation ,시뮬레이션)</span>
+							</a>
+						</li>
+					
+						<li>
+							<a href="/103?category=827622">
+								<span class="thum">
+									
+										<img src="//i1.daumcdn.net/thumb/C264x200/?fname=https://img1.daumcdn.net/thumb/R750x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fc64Sq9%2Fbtq2OpJNkTB%2FAgvNddemsaUj54Q92hoYek%2Fimg.png" alt="">
+									
+								</span>
+								<span class="title">[Java] 백준 알고리즘 14502번 문제 : 삼성 SW 역량 테스트 기출 문제 - 연구소 (DFS, 깊이 우선 탐색, BFS, 너비 우선 탐</span>
+							</a>
+						</li>
+					
+				</ul>
+			</div>
+		
+
+		<div data-tistory-react-app="Namecard"></div><div id="entry105Comment">
+			<div class="comments">
+				
+					<div class="comment-list">
+						<ul>
+							            
+
+            
+						</ul>
+					</div>
+				
+
+				        <form method="post" action="/comment/add/105" onsubmit="return false" style="margin: 0">
+            
+	<div class="comment-form">
+		
+			<div class="field">
+				
+					<input type="text" name="name" value="" placeholder="이름">
+					<input type="password" name="password" value="" placeholder="암호">
+				
+				<div class="secret">
+					<input type="checkbox" name="secret" id="secret">
+					<label for="secret" tabindex="0">Secret</label>
+				</div>
+			</div>
+		
+		<textarea name="comment" cols="" rows="4" placeholder="여러분의 소중한 댓글을 입력해주세요."></textarea>
+		<div class="submit">
+			<button type="submit" class="btn" onclick="addComment(this, 105); return false;">댓글달기</button>
+		</div>
+</div>
+
+        </form>
+			</div>
+		</div>
+<script type="text/javascript">loadedComments[105]=true;
+findFragmentAndHighlight(105);</script>
+
+
+	
+
+                
+            
+			</div>
+
+			
+
+			
+
+			
+
+		</article>
+	</section>
+	<hr>
+	
+
+	
+
+	<footer id="footer">
+		<p class="copyright">DESIGN BY <a href="#">TISTORY</a> <a href="https://mishuni.tistory.com/manage" class="admin">관리자</a></p>
+	</footer>
+</div>
+<script src="https://tistory1.daumcdn.net/tistory/3507082/skin/images/script.js?_version_=1690962958"></script>
+
+<div class="#menubar menu_toolbar ">
+  <h2 class="screen_out">티스토리툴바</h2>
+<div class="btn_tool"><button class="btn_menu_toolbar btn_subscription  #subscribe" data-blog-id="3507082" data-url="https://mishuni.tistory.com" data-device="web_pc"><strong class="txt_tool_id">차곡차곡 창고</strong><em class="txt_state">구독하기</em><span class="img_common_tistory ico_check_type1"></span></button></div></div>
+<div class="#menubar menu_toolbar toolbar_lb"><div class="btn_tool btn_tool_type1" id="menubar_wrapper"></div></div>
+<div class="layer_tooltip">
+  <div class="inner_layer_tooltip">
+    <p class="desc_g"></p>
+  </div>
+</div>
+<iframe id="editEntry" style="position:absolute;width:1px;height:1px;left:-100px;top:-100px" src="//mishuni.tistory.com/api"></iframe>
+
+                <!-- DragSearchHandler - START -->
+<script src="//search1.daumcdn.net/search/statics/common/js/g/search_dragselection.min.js"></script>
+
+<!-- DragSearchHandler - END -->
+
+        <!-- SyntaxHighlight - START -->
+        <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/styles/atom-one-dark-reasonable.min.css" rel="stylesheet"/><script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/highlight.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/languages/delphi.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/languages/php.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/languages/python.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/languages/r.min.js" defer></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/languages/ruby.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/languages/scala.min.js" defer></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/languages/shell.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/languages/sql.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/languages/swift.min.js" defer></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/languages/typescript.min.js" defer></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/languages/vbnet.min.js" defer></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+        <!-- SyntaxHighlight - END -->
+
+                
+                <script type="text/javascript">(function($) {
+    $(document).ready(function() {
+        lightbox.options.fadeDuration = 200;
+        lightbox.options.resizeDuration = 200;
+        lightbox.options.wrapAround = false;
+        lightbox.options.albumLabel = "%1 / %2";
+    })
+})(tjQuery);</script>
+<div style="margin:0; padding:0; border:none; background:none; float:none; clear:none; z-index:0"></div>
+<script type="text/javascript" src="https://tistory1.daumcdn.net/tistory_admin/userblog/tistory-735968968fcf248f01a50bf5a0e014f57d8db1d2/static/script/common.js"></script>
+<script type="text/javascript">window.roosevelt_params_queue = window.roosevelt_params_queue || [{channel_id: 'dk', channel_label: '{tistory}'}]</script>
+<script type="text/javascript" src="//t1.daumcdn.net/midas/rt/dk_bt/roosevelt_dk_bt.js" async="async"></script>
+<script type="text/javascript" src="https://tistory1.daumcdn.net/tistory_admin/userblog/tistory-735968968fcf248f01a50bf5a0e014f57d8db1d2/static/script/menubar.min.js"></script>
+
+                
+                <script>window.tiara = {"svcDomain":"user.tistory.com","section":"글뷰","trackPage":"글뷰_보기","page":"글뷰","key":"3507082-105","customProps":{"userId":"0","blogId":"3507082","entryId":"105","role":"guest","trackPage":"글뷰_보기","filterTarget":false},"entry":{"entryId":"105","categoryName":"Algorithms/Baekjoon","categoryId":"827622","author":"4131134","image":"kage@pGM1C/btq2N0wN6rQ/qkws87ssRQvSZ0Kg2OK61k","plink":"/105","tags":["BFS","Java SW","너비 우선 탐색","백준 14888","백준 알고리즘","삼성 SW 역량 테스트","알고리즘","자바 bfs","자바 알고리즘","코딩 테스트"]},"kakaoAppKey":"3e6ddd834b023f24221217e370daed18","appUserId":"null"}</script>
+<script type="module" src="https://t1.daumcdn.net/tistory_admin/frontend/tiara/v1.0.0/index.js"></script>
+<script src="https://t1.daumcdn.net/tistory_admin/frontend/tiara/v1.0.0/polyfills-legacy.min.js" nomodule="true" defer="true"></script>
+<script src="https://t1.daumcdn.net/tistory_admin/frontend/tiara/v1.0.0/index-legacy.js" nomodule="true" defer="true"></script>
+
+                </body>
+</html>
