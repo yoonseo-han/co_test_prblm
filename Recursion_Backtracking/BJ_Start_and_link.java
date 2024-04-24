@@ -1,6 +1,6 @@
 //https://www.acmicpc.net/problem/14889
 
-import java.util.*;
+import java.util.Scanner;
 
 public class Main {
     static int [][] S;
