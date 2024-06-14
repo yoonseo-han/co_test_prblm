@@ -1,3 +1,5 @@
+//https://school.programmers.co.kr/learn/courses/30/lessons/176962#
+
 import java.util.*;
 
 class Solution {
@@ -67,26 +69,30 @@ class Solution {
                 tempStore.add(plans[i][0]);
                 break;
             }
-            curTime = addTime(plans[i][1], plans[i][2]);
             String nextStartTime = plans[i + 1][1];
+            String endTime = addTime(plans[i][1], plans[i][2]);
+
             // If curTime is greater than nextStartTime
-            if (compareTime(curTime, nextStartTime) > 0) {
+            if (compareTime(endTime, nextStartTime) > 0) {
                 orderStore.add(plans[i]);
                 // Adjust the current task duration to fit the available time before the next task starts
-                plans[i][2] = String.valueOf(Minutes(subtractTime(nextStartTime, plans[i][1])));
+                plans[i][2] = String.valueOf(Minutes(subtractTime(endTime, nextStartTime)));
+                //int difference = Minutes(subtractTime(endTime, nextStartTime));
             } else {
                 // Add current task to processed tasks
                 tempStore.add(plans[i][0]);
+                curTime = endTime;
                 // Get tasks stored in the stack and process them
                 while (!orderStore.isEmpty()) {
                     String[] task = orderStore.pop();
-                    curTime = addTime(curTime, task[2]);
-                    if (compareTime(curTime, nextStartTime) > 0) {
-                        task[2] = String.valueOf(Minutes(subtractTime(nextStartTime, curTime)));
+                    endTime = addTime(curTime, task[2]);
+                    if (compareTime(endTime, nextStartTime) > 0) {
+                        task[2] = String.valueOf(Minutes(subtractTime(endTime, nextStartTime)));
                         orderStore.add(task);
                         break;
                     } else {
                         tempStore.add(task[0]);
+                        curTime = endTime;
                     }
                 }
             }
