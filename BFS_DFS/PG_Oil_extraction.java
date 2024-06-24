@@ -4,17 +4,22 @@ class Solution {
     int [] dX = {1,-1,0,0};
     int [] dY = {0,0,-1,1};
     boolean [][] visited;
+    int[] oilStore;
     
-    public int getSize(int[][] land, boolean[][] visited, int curX, int curY){
+    public void getSize(int[][] land, boolean[][] visited, int curX, int curY){
         Queue<int[]> tempStore = new LinkedList<>();
         int size = 0;
         tempStore.add(new int[]{curX, curY});
         visited[curY][curX] = true;
+
+        // 석유 덩어리의 열 위치 저장: HashSet to remove duplicates
+        Set<Integer> storeColumn = new HashSet<>();
         
         while(!tempStore.isEmpty()) {
             int [] curInd = tempStore.poll();
             curX = curInd[0];
             curY = curInd[1];
+            storeColumn.add(curX);
             
             for(int i=0; i<4; i++) {
                 int tempX = curX + dX[i];
@@ -27,25 +32,28 @@ class Solution {
             }
             size++;
         }
-        
-        return size;
+
+        for (int index : storeColumn) {
+            oilStore[index] += size;
+        }
     }
     
     public int solution(int[][] land) {
         int answer = 0;
         int N = land.length;
         int M = land[0].length;
+        oilStore = new int[M];
         
-        for(int i=0; i<M; i++) {
-            visited = new boolean[N][M];
-            int curSize = 0;
-            for(int j=0; j<N; j++) {
-                if(land[j][i] == 0 || visited[j][i] == true) continue;
-                curSize += getSize(land, visited, i, j);
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < M; j++) {
+                if (land[i][j] == 1 && visited[i][j] == false) {
+                    getSize(land, visited, j, i);
+                }
             }
-            answer = Math.max(answer, curSize);
         }
-        
+
+        answer = Arrays.stream(oilStore).max().getAsInt();
+        System.out.println(answer);
         return answer;
     }
 }
