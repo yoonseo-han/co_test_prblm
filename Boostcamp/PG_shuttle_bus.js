@@ -1,3 +1,5 @@
+//https://school.programmers.co.kr/learn/courses/30/lessons/17678
+
 class Time {
     constructor(hour, minute) {
         this.hour = hour;
@@ -34,7 +36,7 @@ function solution(n, t, m, timetable) {
         timeStore.push(timeToMinute(curTimeParse[0], curTimeParse[1]));
     }
     timeStore.sort((a,b) => a-b);
-    
+
     let busArrivalTime = timeToMinute(9,0);
     let busArrivalTimeStore = [busArrivalTime];
     
