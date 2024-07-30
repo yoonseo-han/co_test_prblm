@@ -13,10 +13,15 @@ class Stack {
         })
     }
 
+    peek() {
+        if(this.size <= 0) return null;
+        return this.list[this.size-1];
+    }
+
     isEmpty() {
-        if(this.index == 0) return true;
+        if(this.size == 0) return true;
         else return false;
     }
 }
 
-module.exports = {Stack};
+module.exports = Stack;
