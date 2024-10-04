@@ -46,6 +46,7 @@ class Solution {
                     curStatus[i]--;
                     curArray.add(mineralID[i]);
                     generateAllScore(curArray, numOfGok, curStatus, minerals);
+                    
                     curArray.remove(curArray.size() - 1);
                     curStatus[i]++;
                 }
