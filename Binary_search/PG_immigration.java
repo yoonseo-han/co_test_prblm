@@ -1,25 +1,32 @@
 //https://school.programmers.co.kr/learn/courses/30/lessons/43238
 
+import java.util.Arrays;
+
 class Solution {
     public static long solution(int n, int[] times) {
         long answer = 0;
-
-        int[] remainingTime = new int[times.length];
-        while(n > 0) {
-            //Calculate process time for each batch
-            int [] escapeTime = new int[times.length];
-            int curMin = Integer.MAX_VALUE;
-            for(int i = 0; i<times.length; i++) {
-                escapeTime[i] = times[i] + remainingTime[i];
+        Arrays.sort(times);
+        long left = 0;
+        long right = times[times.length-1] * (long)n; //The max time possible by all people getting immigration from latest row
+        
+        while(left <= right) {
+            long mid = (left + right) / 2;
+            long complete = 0;
+            for (int i = 0; i < times.length; i++)
+                complete += mid / times[i];
+            if (complete < n) // 해당 시간에는 모든 사람이 검사받을 수 없다.
+                left = mid + 1;
+            else {
+                right = mid - 1;
+                answer = mid; // 모두 검사받았으나, 더 최솟값이 있을 수 있다.
             }
-
-        }
-
+        }  
         return answer;
     }
+
     public static void main(String strs[]) {
         int n = 6;
-        int[] times = [7, 10];
+        int [] times = {7,10};
         System.out.println(solution(n, times));
     }
 }
