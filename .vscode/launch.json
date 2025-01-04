@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Solution",
+            "request": "launch",
+            "mainClass": "Leetcode_Blind75.Array.Solution",
+            "projectName": "Coding test_eabef1cf"
+        },
+        {
+            "type": "java",
             "name": "Launch Solution",
             "request": "launch",
             "mainClass": "Leetcode_100.Solution",
