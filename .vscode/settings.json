@@ -1,5 +1,9 @@
 {
     "files.associations": {
+        "*.sqlbook": "sql",
+        "*.ndjson": "jsonl",
+        "*.dbclient-js": "javascript",
+        "*.embeddedhtml": "html",
         "__split_buffer": "cpp",
         "array": "cpp",
         "deque": "cpp",
@@ -7,6 +11,7 @@
         "string": "cpp",
         "string_view": "cpp",
         "vector": "cpp",
-        "iostream": "cpp"
+        "iostream": "cpp",
+        "stack": "cpp"
     }
 }
