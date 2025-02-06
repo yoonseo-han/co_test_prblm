@@ -12,6 +12,7 @@
         "string_view": "cpp",
         "vector": "cpp",
         "iostream": "cpp",
-        "stack": "cpp"
+        "stack": "cpp",
+        "set": "cpp"
     }
 }
