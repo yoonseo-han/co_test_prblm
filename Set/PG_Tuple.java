@@ -2,39 +2,50 @@ import java.util.*;
 
 class Solution {
     public int[] solution(String s) {
-        int[] answer = {};
+        // Remove the outer braces
         String newSubstring = s.substring(1, s.length() - 1);
-        List<List<Integer>> store = new ArrayList<>();
-        int idx = 1;
-        int n = s.length();
 
-        while (idx < n) {
-            String tempString = "";
-            while (newSubstring.charAt(idx) != '}') {
-                tempString += newSubstring.charAt(idx++);
-            }
-            String[] elements = tempString.split(",");
+        // Split into individual sets using "},{" as the delimiter
+        String[] groups = newSubstring.split("\\},\\{");
+
+        // Prepare a list to store parsed sets of integers
+        List<List<Integer>> store = new ArrayList<>();
+
+        // Parse each group
+        for (String group : groups) {
+            // Clean up the braces and split into integers
+            group = group.replace("{", "").replace("}", "");
+            String[] elements = group.split(",");
             List<Integer> tempList = new ArrayList<>();
             for (String element : elements) {
                 tempList.add(Integer.parseInt(element));
             }
             store.add(tempList);
-            idx += 3;
         }
 
-        store.sort((a, b) -> a.size() - b.size());
-        Set<Integer> duplicateCheck = new HashSet<>();
-        List<Integer> answerStore = new ArrayList<>(); // Preserver order
+        // Sort the lists by their size (ascending) using a lambda expression
+        store.sort((list1, list2) -> Integer.compare(list1.size(), list2.size()));
 
-        for (List<Integer> tempList : store) {
-            for (int i : tempList) {
-                if (!duplicateCheck.contains(i)) {
-                    duplicateCheck.add(i);
-                    answerStore.add(i);
+        // Create a set to maintain unique values and construct the result
+        Set<Integer> seen = new HashSet<>();
+        List<Integer> result = new ArrayList<>();
+        for (List<Integer> curList : store) {
+            for (int num : curList) {
+                if (!seen.contains(num)) {
+                    result.add(num);
+                    seen.add(num);
                 }
             }
         }
 
-        return answerStore.stream().mapToInt(i -> i).toArray();
+        // Convert the result list to an array
+        return result.stream().mapToInt(i -> i).toArray();
+    }
+
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        String input = "{{2},{2,1},{2,1,3},{2,1,3,4}}";
+        int[] result = solution.solution(input);
+        System.out.println(Arrays.toString(result)); // Expected output: [2, 1, 3, 4]
     }
 }
