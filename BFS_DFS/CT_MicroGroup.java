@@ -3,7 +3,7 @@ import java.io.*;
 
 public class Main {
 
-    static class Group {
+    static class Group implements Comparable<Group> {
         int groupID;
         int size;
         List<int[]> points;
@@ -16,7 +16,8 @@ public class Main {
 
         @Override
         public int compareTo(Group otherGroup) {
-            if(this.size != otherGroup.size) return otherGroup.size - this.size;
+            if (this.size != otherGroup.size)
+                return otherGroup.size - this.size;
             // One with smaller ID
             return this.groupID - otherGroup.groupID;
         }
@@ -25,12 +26,12 @@ public class Main {
     static int N;
     static int Q;
     static int[][] map;
-    static int dx = {-1,1,0,0};
-    static int dy = {0,0,1,-1};
-    static microCnt = 0;
+    static int dx = { -1, 1, 0, 0 };
+    static int dy = { 0, 0, 1, -1 };
+    static int microCnt = 0;
     List<Group> groupStore;
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         // Please write your code here.
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -43,7 +44,7 @@ public class Main {
         map = new int[N][N];
         microCnt++;
 
-        for(int i = 0; i < Q; i++) {
+        for (int i = 0; i < Q; i++) {
             st = new StringTokenizer(br.readLine());
             int r1 = Integer.parseInt(st.nextToken());
             int c1 = Integer.parseInt(st.nextToken());
@@ -53,16 +54,16 @@ public class Main {
             // Always add new group to desired position
             setMap(r1, c1, r2, c2);
 
-            if(microCnt > 1) {
+            if (microCnt > 1) {
                 checkAndRemoveDividedGroups();
             }
-            moveGroups();
+            moveGroups(groupStore);
         }
     }
 
     public static void setMap(int r1, int c1, int r2, int c2) {
-        for(int i = r1; i<r2; i++) {
-            for(int j = c1; j<c2; j++) {
+        for (int i = r1; i < r2; i++) {
+            for (int j = c1; j < c2; j++) {
                 map[i][j] = microCnt;
             }
         }
@@ -72,10 +73,11 @@ public class Main {
     public static void checkAndRemoveDividedGroups() {
         boolean[][] visited = new boolean[N][N];
 
-        for(int i = 0; i<N; i++) {
-            for(int j = 0; j<N; j++) {
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < N; j++) {
                 // Already visited (previously dealt microgorup) or empty
-                if(map[i][j] == 0 || visited[i][j] == true) continue;
+                if (map[i][j] == 0 || visited[i][j] == true)
+                    continue;
 
                 int groupID = map[i][j];
 
@@ -83,7 +85,7 @@ public class Main {
                 List<int[]> connectedCells = bfsCollectGroup(i, j, groupID, visited);
 
                 // Determine if there is divided group -> Another one with same groupID
-                if(!groupDivideExist(groupID, connectedCells.size())) {
+                if (!groupDivideExist(groupID, connectedCells.size())) {
                     // If so, remove the whole group from map
                     groupStore.add(new Group(groupID, connectedCells));
                 } else {
@@ -97,26 +99,29 @@ public class Main {
         Queue<int[]> tempQueue = new LinkedList<>();
         List<int[]> tempResult = new ArrayList<>();
 
-        tempQueue.offer(new int[]{i, j});
+        tempQueue.offer(new int[] { i, j });
         visited[i][j] = true;
 
-        while(!tempQueue.isEmpty()) {
+        while (!tempQueue.isEmpty()) {
             int[] cur = tempQueue.poll();
 
             tempResult.add(cur);
             // Check all 4 directions
-            for(int i = 0; i<4; i++) {
+            for (int i = 0; i < 4; i++) {
                 int nX = cur[0] + dx[i];
                 int nY = cur[1] + dy[i];
 
                 // Check if within map range
-                if(nX < 0 || nY < 0 || nX >= N || nY >= N) continue;
+                if (nX < 0 || nY < 0 || nX >= N || nY >= N)
+                    continue;
                 // Check if equal to groupID and not visited
-                if(visited[nX][nY]) continue;
-                if(map[nX][nY] != groupID) continue;
+                if (visited[nX][nY])
+                    continue;
+                if (map[nX][nY] != groupID)
+                    continue;
 
                 visited[nX][nY] = true;
-                tempQueue.offer(new int[]{nX, nY});
+                tempQueue.offer(new int[] { nX, nY });
             }
         }
         return tempResult;
@@ -126,7 +131,8 @@ public class Main {
         int totalCount = 0;
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < N; j++) {
-                if (map[i][j] == groupID) totalCount++;
+                if (map[i][j] == groupID)
+                    totalCount++;
             }
         }
         // BFS로 찾은 연결 덩어리 크기 < 전체 크기 → 끊어졌다
@@ -142,13 +148,13 @@ public class Main {
             }
         }
     }
-    
+
     public static void moveGroups(List<Group> groups) {
         PriorityQueue<Group> tempStore = new PriorityQueue<>();
         tempStore.addAll(groups);
 
-        boolean[][] visited = new visited[N][N];
-        int [][] newMap = new int[N][N];
+        boolean[][] visited = new boolean[N][N];
+        int[][] newMap = new int[N][N];
 
         // Queue에서 하나씩 꺼내면서 배치 가능 여부 확인 및 가능 시 배치 진행
         while (!tempStore.isEmpty()) {
@@ -158,37 +164,38 @@ public class Main {
             int baseRow = curPoints.get(0)[0];
             int baseCol = curPoints.get(0)[1];
 
-            outerLoop:
-            for(int i = 0; i<N; i++) {
-                for(int j = 0; j<N; j++) {
+            outerLoop: for (int i = 0; i < N; i++) {
+                for (int j = 0; j < N; j++) {
                     // i, j being the target to move the base position too
-                    if(canPlaceGroupAt(curPoints, baseRow, baseCol, i, j, visited)) {
-                        placeGroup(curPoints, baseRow, baseCol, visited, newMap, curGroup.groupID);
+                    if (canPlaceGroupAt(curPoints, baseRow, baseCol, i, j, visited)) {
+                        placeGroup(curPoints, baseRow, baseCol, i, j, visited, newMap, curGroup.groupID);
                         break outerLoop;
                     }
                 }
             }
-
-            map = newMap;
         }
+        map = newMap;
     }
 
-    public static boolean canPlaceGroupAt(List<int[]> points, int baseRow, int baseCol, 
-                                            int targetRow, int targetCol, boolean[][] visited) {
-        for(int[] curPoint: points) {
+    public static boolean canPlaceGroupAt(List<int[]> points, int baseRow, int baseCol,
+            int targetRow, int targetCol, boolean[][] visited) {
+        for (int[] curPoint : points) {
             int newRow = curPoint[0] - baseRow + targetRow;
             int newCol = curPoint[1] - baseCol + targetCol;
 
             // Check out of range or visited
-            if(newRow < 0 || newCol < 0 || newRow >= N || newCol >= N) return false;
-            if(visited[newRow][newCol]) return false;
+            if (newRow < 0 || newCol < 0 || newRow >= N || newCol >= N)
+                return false;
+            if (visited[newRow][newCol])
+                return false;
         }
 
         return true;
     }
 
-    public static void placeGroup(List<int[]> points, int baseRow, int baseCol, boolean[][] visited, int [][] map, int groupID) {
-        for(int [] curPoint: points) {
+    public static void placeGroup(List<int[]> points, int baseRow, int baseCol, int targetRow, int targetCol,
+            boolean[][] visited, int[][] map, int groupID) {
+        for (int[] curPoint : points) {
             int newRow = curPoint[0] - baseRow + targetRow;
             int newCol = curPoint[1] - baseCol + targetCol;
 
