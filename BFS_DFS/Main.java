@@ -1,5 +1,5 @@
-import java.util.*;
 import java.io.*;
+import java.util.*;
 
 public class Main {
 
@@ -26,10 +26,10 @@ public class Main {
     static int N;
     static int Q;
     static int[][] map;
-    static int dx = { -1, 1, 0, 0 };
-    static int dy = { 0, 0, 1, -1 };
+    static int [] dx = { -1, 1, 0, 0 };
+    static int [] dy = { 0, 0, 1, -1 };
     static int microCnt = 0;
-    List<Group> groupStore;
+    static List<Group> groupStore;
 
     public static void main(String[] args) throws IOException {
         // Please write your code here.
@@ -107,9 +107,9 @@ public class Main {
 
             tempResult.add(cur);
             // Check all 4 directions
-            for (int i = 0; i < 4; i++) {
-                int nX = cur[0] + dx[i];
-                int nY = cur[1] + dy[i];
+            for (int k = 0; k < 4; k++) {
+                int nX = cur[0] + dx[k];
+                int nY = cur[1] + dy[k];
 
                 // Check if within map range
                 if (nX < 0 || nY < 0 || nX >= N || nY >= N)
