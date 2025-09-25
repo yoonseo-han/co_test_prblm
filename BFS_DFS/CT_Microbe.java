@@ -1,5 +1,5 @@
-import java.io.*;
 import java.util.*;
+import java.io.*;
 
 public class Main {
 
@@ -23,13 +23,45 @@ public class Main {
         }
     }
 
+    static class Pair {
+        int firstElement;
+        int secondElement;
+
+        public Pair(int firstElement, int secondElement) {
+            // Always sort in initialization
+            if (firstElement < secondElement) {
+                this.firstElement = firstElement;
+                this.secondElement = secondElement;
+            } else {
+                this.firstElement = secondElement;
+                this.secondElement = firstElement;
+            }
+        }
+
+        @Override
+        public boolean equals(Object curObj) {
+            if (this == curObj)
+                return true;
+            if (!(curObj instanceof Pair))
+                return false;
+            Pair curPair = (Pair) curObj;
+            return firstElement == curPair.firstElement && secondElement == curPair.secondElement;
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(firstElement, secondElement);
+        }
+    }
+
     static int N;
     static int Q;
     static int[][] map;
-    static int [] dx = { -1, 1, 0, 0 };
-    static int [] dy = { 0, 0, 1, -1 };
+    static int[] dx = { -1, 1, 0, 0 };
+    static int[] dy = { 0, 0, 1, -1 };
     static int microCnt = 0;
     static List<Group> groupStore;
+    static Map<Integer, Group> groupMap;
 
     public static void main(String[] args) throws IOException {
         // Please write your code here.
@@ -58,6 +90,8 @@ public class Main {
                 checkAndRemoveDividedGroups();
             }
             moveGroups(groupStore);
+            updateGroups(groupStore);
+            calculatePoints(groupStore);
         }
     }
 
@@ -202,5 +236,62 @@ public class Main {
             visited[newRow][newCol] = true;
             map[newRow][newCol] = groupID;
         }
+    }
+
+    public static void updateGroups(List<Group> groups) {
+        List<Group> newGroup = new ArrayList<>();
+        boolean[][] visitedNew = new boolean[N][N];
+
+        groupMap = new HashMap<>();
+
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < N; j++) {
+                if (map[i][j] > 0 && !visitedNew[i][j]) {
+                    int groupID = map[i][j];
+                    List<int[]> newPoints = bfsCollectGroup(i, j, groupID, visitedNew);
+                    Group curGroup = new Group(groupID, newPoints);
+                    newGroup.add(curGroup);
+                    groupMap.put(groupID, curGroup);
+                }
+            }
+        }
+        groupStore = newGroup;
+    }
+
+    public static void calculatePoints(List<Group> groupList) {
+        Set<Pair> adjacentPairs = new HashSet<>();
+
+        // Get all possible unique combination of pairs
+        for (Group curGroup : groupList) {
+            for (int[] curPoint : curGroup.points) {
+                int r = curPoint[0];
+                int c = curPoint[1];
+
+                for (int i = 0; i < 4; i++) {
+                    int nr = r + dx[i];
+                    int nc = c + dy[i];
+
+                    if (nr < 0 || nc < 0 || nr >= N || nc >= N)
+                        continue;
+
+                    int neighborID = map[nr][nc];
+                    // Check if same ID or not -> meaningless if same
+                    if (neighborID > 0 && neighborID != curGroup.groupID) {
+                        Pair curPair = new Pair(curGroup.groupID, neighborID);
+                        adjacentPairs.add(curPair);
+                    }
+                }
+            }
+        }
+
+        int point = 0;
+        // Calculate all possible scores based on the collected pairs
+        for (Pair curPair : adjacentPairs) {
+            int sizeA = groupMap.get(curPair.firstElement).size;
+            int sizeB = groupMap.get(curPair.secondElement).size;
+            point += sizeA * sizeB;
+        }
+
+        System.out.println(point);
     }
 }
